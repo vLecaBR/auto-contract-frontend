@@ -180,8 +180,11 @@ const ContractForm = () => {
           />
         <Input 
           type="date" name="dataDeposito1" placeholder="Data do 1º Depósito" onChange={handleChange} />
-        <Input type="date" name="dataDeposito2" placeholder="Data do 2º Depósito" onChange={handleChange} />
-        <Button type="submit">Gerar Contrato</Button>
+        <Input 
+          type="date" name="dataDeposito2" placeholder="Data do 2º Depósito" onChange={handleChange} />
+        <Button 
+          type="submit">Gerar Contrato
+        </Button>
       </Form>
     </Container>
   );
