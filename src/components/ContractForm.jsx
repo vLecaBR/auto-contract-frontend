@@ -172,8 +172,14 @@ const ContractForm = () => {
           placeholder="1º Depósito (Sinal)" 
           onChange={handleChange} 
           />
-        <Input type="number" name="deposito2" placeholder="2º Depósito" onChange={handleChange} />
-        <Input type="date" name="dataDeposito1" placeholder="Data do 1º Depósito" onChange={handleChange} />
+        <Input 
+          type="number" 
+          name="deposito2" 
+          placeholder="2º Depósito" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="date" name="dataDeposito1" placeholder="Data do 1º Depósito" onChange={handleChange} />
         <Input type="date" name="dataDeposito2" placeholder="Data do 2º Depósito" onChange={handleChange} />
         <Button type="submit">Gerar Contrato</Button>
       </Form>
