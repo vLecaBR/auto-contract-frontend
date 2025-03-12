@@ -107,15 +107,59 @@ const ContractForm = () => {
             <option key={index} value={artista}>{artista}</option>
           ))}
         </Select>
-        <Input type="text" name="evento" placeholder="Nome do Evento" onChange={handleChange} />
-        <Input type="date" name="data" onChange={handleChange} />
-        <Input type="time" name="horarioEvento" placeholder="Horário do Evento" onChange={handleChange} />
-        <Input type="time" name="horarioPalco" placeholder="Horário no Palco" onChange={handleChange} />
-        <Input type="text" name="nomeCasa" placeholder="Nome da Casa" onChange={handleChange} />
-        <Input type="text" name="capacidadeLocal" placeholder="Capacidade do Local" onChange={handleChange} />
-        <Input type="text" name="enderecoCasa" placeholder="Endereço da Casa" onChange={handleChange} />
-        <Input type="text" name="cep" placeholder="CEP" onChange={handleChange} />
-        <Input type="text" name="cidade" placeholder="Cidade" onChange={handleChange} />
+        <Input 
+          type="text" 
+          name="evento" 
+          placeholder="Nome do Evento" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="date" 
+          name="data" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="time" 
+          name="horarioEvento" 
+          placeholder="Horário do Evento" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="time" 
+          name="horarioPalco" 
+          placeholder="Horário no Palco" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="text" 
+          name="nomeCasa" 
+          placeholder="Nome da Casa" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="text" 
+          name="capacidadeLocal" 
+          placeholder="Capacidade do Local" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="text" 
+          name="enderecoCasa" 
+          placeholder="Endereço da Casa" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="text" 
+          name="cep" 
+          placeholder="CEP" 
+          onChange={handleChange} 
+          />
+        <Input 
+          type="text" 
+          name="cidade" 
+          placeholder="Cidade" 
+          onChange={handleChange} 
+          />
         <Input type="text" name="valorShow" placeholder="Valor do Show" onChange={handleChange} />
         <Input type="number" name="deposito1" placeholder="1º Depósito (Sinal)" onChange={handleChange} />
         <Input type="number" name="deposito2" placeholder="2º Depósito" onChange={handleChange} />
