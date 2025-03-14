@@ -51,6 +51,7 @@ const Button = styled.button`
 
 const ContractForm = () => {
   const [formData, setFormData] = useState({
+    tipoContratante: "", // Adicionado para controle do tipo de contratante (PF ou PJ)
     artista: "",
     camarim: "",
     capacidadeLocal: "",
@@ -127,7 +128,19 @@ const ContractForm = () => {
       <Title>Formulário de Contrato</Title>
       <Form onSubmit={handleSubmit}>
         
-        {/* Seção 1: Dados do Evento */}
+        {/* Seção 1: Seleção de Tipo de Contratante (PF ou PJ) */}
+        <SectionTitle>Tipo de Contratante</SectionTitle>
+        <Select 
+          name="tipoContratante" 
+          onChange={handleChange} 
+          value={formData.tipoContratante}
+        >
+          <option value="">Selecione o Tipo de Contratante</option>
+          <option value="PF">Pessoa Física</option>
+          <option value="PJ">Pessoa Jurídica</option>
+        </Select>
+
+        {/* Seção 2: Dados do Evento */}
         <SectionTitle>Dados do Evento</SectionTitle>
         <Select name="artista" onChange={handleChange}>
           <option value="">Selecione um Artista</option>
@@ -219,7 +232,7 @@ const ContractForm = () => {
           onChange={handleChange} 
         />
         
-        {/* Seção 2: Depósitos */}
+        {/* Seção 3: Depósitos */}
         <SectionTitle>Depósitos</SectionTitle>
         <Input 
           type="number" 
@@ -246,119 +259,128 @@ const ContractForm = () => {
           onChange={handleChange} 
         />
 
-        {/* Seção 3: Dados do Contratante - Pessoa Jurídica */}
-        <SectionTitle>Dados do Contratante - Pessoa Jurídica</SectionTitle>
-        <Input 
-          type="text" 
-          name="nomeContratantePJ" 
-          placeholder="Nome do Contratante PJ" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="cpfCnpj" 
-          placeholder="CPF/CNPJ" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="enderecoPJ" 
-          placeholder="Endereço" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="telefoneContatoPJ" 
-          placeholder="Telefone Contato" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="email" 
-          name="emailPJ" 
-          placeholder="Email" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="representanteLegal" 
-          placeholder="Representante Legal" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="enderecoRepLegal" 
-          placeholder="Endereço do Representante Legal" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="cepRepLegal" 
-          placeholder="CEP" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="rgRepLegal" 
-          placeholder="RG" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="cpfRepLegal" 
-          placeholder="CPF" 
-          onChange={handleChange} 
-        />
+        {/* Condicionalmente exibe os campos de PF ou PJ */}
+        {formData.tipoContratante === "PJ" && (
+          <>
+            {/* Seção 4: Dados do Contratante - Pessoa Jurídica */}
+            <SectionTitle>Dados do Contratante - Pessoa Jurídica</SectionTitle>
+            <Input 
+              type="text" 
+              name="nomeContratantePJ" 
+              placeholder="Nome do Contratante PJ" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="cpfCnpj" 
+              placeholder="CPF/CNPJ" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="enderecoPJ" 
+              placeholder="Endereço" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="telefoneContatoPJ" 
+              placeholder="Telefone Contato" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="email" 
+              name="emailPJ" 
+              placeholder="Email" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="representanteLegal" 
+              placeholder="Representante Legal" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="enderecoRepLegal" 
+              placeholder="Endereço do Representante Legal" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="cepRepLegal" 
+              placeholder="CEP" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="rgRepLegal" 
+              placeholder="RG" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="cpfRepLegal" 
+              placeholder="CPF" 
+              onChange={handleChange} 
+            />
+          </>
+        )}
 
-        {/* Seção 4: Dados do Contratante - Pessoa Física */}
-        <SectionTitle>Dados do Contratante - Pessoa Física</SectionTitle>
-        <Input 
-          type="text" 
-          name="nomeContratantePF" 
-          placeholder="Nome do Contratante PF" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="enderecoPF" 
-          placeholder="Endereço" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="cepPF" 
-          placeholder="CEP" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="cidadePF" 
-          placeholder="Cidade" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="telefoneContatoPF" 
-          placeholder="Telefone Contato" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="email" 
-          name="emailPF" 
-          placeholder="Email" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="rgPF" 
-          placeholder="RG" 
-          onChange={handleChange} 
-        />
-        <Input 
-          type="text" 
-          name="cpfPF" 
-          placeholder="CPF" 
-          onChange={handleChange} 
-        />
+        {formData.tipoContratante === "PF" && (
+          <>
+            {/* Seção 5: Dados do Contratante - Pessoa Física */}
+            <SectionTitle>Dados do Contratante - Pessoa Física</SectionTitle>
+            <Input 
+              type="text" 
+              name="nomeContratantePF" 
+              placeholder="Nome do Contratante PF" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="enderecoPF" 
+              placeholder="Endereço" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="cepPF" 
+              placeholder="CEP" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="cidadePF" 
+              placeholder="Cidade" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="telefoneContatoPF" 
+              placeholder="Telefone Contato" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="email" 
+              name="emailPF" 
+              placeholder="Email" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="rgPF" 
+              placeholder="RG" 
+              onChange={handleChange} 
+            />
+            <Input 
+              type="text" 
+              name="cpfPF" 
+              placeholder="CPF" 
+              onChange={handleChange} 
+            />
+          </>
+        )}
         
         {/* Botão de envio */}
         <Button type="submit">Gerar Contrato</Button>
